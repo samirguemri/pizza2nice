@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title th:text="${appName}">Title</title>
+
+        <style type="text/css">
+            h1{ font-size: 600%; }
+            h2{ font-size: 200%; }
+            span{ font-size: larger; color: midnightblue; }
+            label{ display: inline-block; float: none; width: 150px; }
+            input{float: inherit;}
+            input#submit{float: initial; }
+        </style>
+        <style>
+            .body{ background-color: #dddddd; }
+            .flex-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body class="body">
+        <header>
+            <div class="flex-container">
+                <h1 >PIZZA<span id="title">2</span>NICE</h1>
+                <h2>Home Made Pi<span>ZZ</span>a</h2>
+            </div>
+            <br/><br/><br/>
+        </header>
+        <main>
+            <div class="flex-container">
+                <form action="/pizza2nice/helloAdmin" method="post">
+                    <label for="login">Log In :</label>
+                    <input type="text" id="login" name="loginConnection"><br><br>
+                    <label for="pwd">Mot de passe :</label>
+                    <input type="password" id="pwd" name="pwdConnection"><br><br>
+                    <input id="submit" type="submit" value="Se Connecter" style="height:2em; width:10em">
+                </form>
+            </div>
+        </main>
+    </body>
+</html>

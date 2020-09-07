@@ -1,0 +1,20 @@
+.body{
+    background-color: #C0C0C0;
+}
+.flexbox-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    text-align: center;
+    child-align: auto;
+}
+.flexbox-container > div { background: #DFDFDF; }
+.flexbox-container > div:nth-child(odd){ background: #CFCFCF; }
+.flexbox-item {
+    width: 98%;
+    margin: 1px;
+}
+input[type=text] { width: 20em;  height: 2em; }
+#submit { width: 10em;  height: 2em; }

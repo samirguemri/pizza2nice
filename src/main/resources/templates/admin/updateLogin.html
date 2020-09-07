@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Update Admin Login</title>
+        <link href="../../static/adminStyle.css" rel="stylesheet" media="all" type="text/css">
+    </head>
+    <body>
+        <form action="/pizza2nice/helloAdmin" method="post">
+            <div class="flex-container">
+
+                <div class="flex-items">
+                    <label for="newLogin">New Login :</label>
+                    <input type="text" id="newLogin" name="newLogin"  onkeyup='check();' ><br><br>
+                </div>
+                <div class="flex-items">
+                    <label for="newLoginConf">Confirm New Login :</label>
+                    <input type="text" id="newLoginConf" name="newLoginConf"  onkeyup='check();' ><span id="message"> </span><br><br>
+                </div>
+
+
+                <div class="flex-items"><input id="submit" type="submit" value="Update Login" style="height:2em; width:5em"></div>
+            </div>
+        </form>
+        <script>
+            var check = function() {
+                if (document.getElementById('newLogin').value ==
+                    document.getElementById('newLoginConf').value) {
+                    document.getElementById('message').style.color = 'green';
+                    document.getElementById('message').innerHTML = '    V';
+                    document.getElementById('submit').disabled = false;
+                } else {
+                    document.getElementById('message').style.color = 'red';
+                    document.getElementById('message').innerHTML = '    X';
+                    document.getElementById('submit').disabled = true;
+                }
+            }
+        </script>
+    </body>
+</html>

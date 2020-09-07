@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adding New Admin</title>
+    <link href="../../static/adminStyle.css" rel="stylesheet" media="all" type="text/css">
+</head>
+<body>
+    <form action="/pizza2nice/helloAdmin" method="post">
+        <div class="flex-container">
+            <div class="flex-items">
+                <label for="firstName">First Name :</label>
+                <input type="text" id="firstName" name="firstName"><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="lastName">Last Name :</label>
+                <input type="text" id="lastName" name="lastName"><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="address">Address :</label>
+                <input type="text" id="address" name="address"><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="zipCode">Zip Code :</label>
+                <input type="text" id="zipCode" name="zipCode"><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="login">Log In :</label>
+                <input type="text" id="login" name="login"><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="pwd">Password :</label>
+                <input type="password" id="pwd" name="pwd"  onkeyup='check();' ><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="pwdConf">Confirm Password :</label>
+                <input type="password" id="pwdConf" name="pwdConf"  onkeyup='check();' ><span id="message"> </span><br><br>
+            </div>
+
+
+            <div class="flex-items"><input id="submit" type="submit" value="Add"  style="height:2em; width:5em"></div>
+        </div>
+    </form>
+    <script>
+        var check = function() {
+            if (document.getElementById('pwd').value ==
+                document.getElementById('pwdConf').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = '    V';
+                document.getElementById('submit').disabled = false;
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = '    X';
+                document.getElementById('submit').disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

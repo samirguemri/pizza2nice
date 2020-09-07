@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Order's Customer</title>
+    </head>
+    <body>
+        <div>
+            <div id="registeredCustomer">
+                <div id="searchCustomerById">
+                    <form action="/pizza2nice/customer/searchCustomerById" method="get">
+                            <label for="idCustomer">Customer ID :</label>
+                            <input type="text" id="idCustomer" name="idCustomer"><br><br>
+                            <input id="submitId" type="submit" value="Search" style="height:2em; width:5em">
+                    </form>
+                </div>
+                <hr width="70%">
+                <div id="searchCustomerByName">
+                    <form action="/pizza2nice/customer/searchCustomerByName" method="get">
+                            <label for="firstNameCustomer">Customer firstName :</label>
+                            <input type="text" id="firstNameCustomer" name="firstNameCustomer"><br><br>
+                            <label for="lastNameCustomer">Customer lastName :</label>
+                            <input type="text" id="lastNameCustomer" name="lastNameCustomer"><br><br>
+                            <input id="submitName" type="submit" value="Search" style="height:2em; width:5em">
+                    </form>
+                </div>
+            </div>
+            <hr>
+            <div id="newCustomer">
+
+            </div>
+        </div>
+    </body>
+</html>

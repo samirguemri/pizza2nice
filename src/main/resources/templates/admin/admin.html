@@ -1,0 +1,46 @@
+<!DOCTYPE html><hr>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Administrator</title>
+        <link href="../../static/adminStyle.css" rel="stylesheet" media="all" type="text/css">
+    </head>
+    <body>
+        <div class="flexbox-container">
+            <div id="addNewAdmin" class="flexbox-item">
+                <label for="addAdmin">Add New Admin :</label>
+                <button id="addAdmin" onclick="window.location='/pizza2nice/admin/addAdmin'"
+                        style="height:2em; width:10em">GO ON
+                </button>
+            </div>
+            <hr>
+            <div id="updateAdminLoginById" class="flexbox-item">
+                <label for="updateLogin">Update Admin Login :</label>
+                <button id="updateLogin" onclick="window.location='/pizza2nice/admin/updateLogin'"
+                        style="height:2em; width:10em">GO ON
+                </button>
+            </div>
+            <hr>
+            <div id="updateAdminPasswordById" class="flexbox-item">
+                <label for="updatePassword">Update Admin Password :</label>
+                <button id="updatePassword" onclick="window.location='/pizza2nice/admin/updatePassword'"
+                        style="height:2em; width:10em">GO ON
+                </button>
+            </div>
+            <hr>
+            <div id="deleteAdminById" class="flexbox-item">
+                <label for="deleteAdmin">Delete Admin :</label>
+                <button id="deleteAdmin" onclick="window.location='/pizza2nice/admin/deleteAdmin'"
+                        style="height:2em; width:10em">GO ON
+                </button>
+            </div>
+            <hr>
+            <div id="order" class="flexbox-item">
+                <label for="newOrder">New Order :</label>
+                <button id="newOrder" onclick="window.location='/pizza2nice/customer'"
+                        style="height:2em; width:10em">GO ON
+                </button>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Admin</title>
+    <link href="../../static/adminStyle.css" rel="stylesheet" media="all" type="text/css">
+</head>
+<body>
+    <form action="/pizza2nice/helloAdmin" method="post">
+        <div class="flex-container">
+
+            <div class="flex-items">
+                <label for="idAdminToDelete">ID Admin To delete :</label>
+                <input type="text" id="idAdminToDelete" name="idAdminToDelete"  onkeyup='check();' ><br><br>
+            </div>
+            <div class="flex-items">
+                <label for="idAdminToDeleteConf">Confirm ID Admin To delete :</label>
+                <input type="text" id="idAdminToDeleteConf" name="idAdminToDeleteConf"  onkeyup='check();' ><span id="message"> </span><br><br>
+            </div>
+
+
+            <div class="flex-items"><input id="submit" type="submit" width="15px" value="delete"></div>
+        </div>
+    </form>
+    <script>
+        var check = function() {
+            if (document.getElementById('idAdminToDelete').value ==
+                document.getElementById('idAdminToDeleteConf').value) {
+                document.getElementById('message').style.color = 'green';
+                document.getElementById('message').innerHTML = 'V';
+                document.getElementById('submit').disabled = false;
+            } else {
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'X';
+                document.getElementById('submit').disabled = true;
+            }
+        }
+    </script>
+</body>
+</html>

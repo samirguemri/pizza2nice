@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Order</title>
+        <style>
+            .body{ background-color: #dddddd; }
+            .site{
+                display: grid;
+                grid-auto-columns: 1fr 1fr 1fr;
+                grid-template-rows: 200px 50px 1fr 1fr;
+                grid-template-areas:
+                    "header header header"
+                    "customerInfo X orderInfo"
+                    "choice choice items"
+                    "footer footer footer";
+                grid-gap: 10px;
+                margin: 10px;
+                margin-inside: 20px;
+            }
+            .header{
+                grid-area: header;
+                text-align: center;
+                border: 2px solid;
+            }
+            .customerInfo{
+                grid-area: customerInfo;
+                border: 2px solid;
+            }
+            .orderInfo {
+                grid-area: orderInfo;
+                border: 2px solid;
+            }
+            .availableChoices{
+                grid-area: choice;
+                align-items: start;
+                border: 2px solid;
+            }
+            .customerChoice{
+                grid-area: items;
+                border: 2px solid;
+            }
+            .footer{
+                grid-area: footer;
+                border: 2px solid;
+            }
+            h2{ font-size: 40px; }
+            h3{ font-size: 20px; }
+            span{ font-size: larger; color: midnightblue; }
+            input[type="number"] { width:30px; }
+        </style>
+    </head>
+    <body class="body">
+        <div class="site">
+            <div class="header">
+                <h2 >PIZZA<span id="title">2</span>NICE</h2>
+                <h3>Home Made Pi<span>ZZ</span>a</h3>
+            </div>
+            <div class="customerInfo">
+                <label for="customerFName">Customer Name :</label>
+                <span id="customerFName" th:text="${order.getCustomer().getFirstName()}"></span>
+                <span id="customerLName" th:text="${order.getCustomer().getLastName()}"></span><br>
+                <label for="customerId">Customer ID :</label>
+                <span id="customerId" th:text="${order.getCustomer().getId()}"></span><br>
+            </div>
+            <div class="orderInfo">
+                <label for="orderRef">Order Ref :</label>
+                <span id="orderRef" th:text="${order.getOrderRef()}"></span><br>
+                <label for="orderDate">Order Date :</label>
+                <span id="orderDate" th:text="${order.getOrderDate()}"></span><br>
+            </div>
+            <div class="availableChoices">
+                <div class="pizza">
+                    <span>Your PiZZa</span><br/><br/>
+                    <label for="pizzaChoice">Choose Your Pizza :</label>
+                    <select id="pizzaChoice" name="pizzaChoice">
+                        <span th:each="pizza : ${pizzaList}">
+                            <option th:text="${pizza.getName()}"></option>
+                        </span>
+                    </select>
+                    <label for="quantityPizza">Quantity :</label>
+                    <input type="number" id="quantityPizza" min="1" width="10px">
+                    <input type="button" value="Select"
+                           onclick="addRow(document.getElementById('tableProduitsChoisits'), document.getElementById('listeProduits') ,document.getElementById('quantiteProduit').value);" />
+                </div>
+                <br/>
+                <div class="paste">
+                    <label for="pasteChoice">Choose Your Paste :</label>
+                    <select id="pasteChoice" name="pasteChoice">
+                        <option selected>--Paste--</option>
+                        <span th:each="paste : ${pasteList}">
+                            <option th:text="${paste.name()}"></option>
+                        </span>
+                    </select>
+                </div>
+                <br/>
+                <div class="sauce">
+                    <label for="sauceChoice">Choose Your Sauce :</label>
+                    <select id="sauceChoice" name="sauceChoice">
+                        <option selected>--Sauce--</option>
+                        <span th:each="sauce : ${sauceList}">
+                            <option th:text="${sauce.name()}"></option>
+                        </span>
+                    </select>
+                </div>
+                <br/>
+                <div class="ingredients">
+                    <label>Choose Your Ingredients :</label><br/><br/>
+                    <label for="ingredient_1">Ingredient 1 :</label>
+                    <select id="ingredient_1" name="ingredient_1">
+                        <option selected>--Ingredient 1--</option>
+                        <span th:each="ingredient : ${ingredientList}">
+                            <option th:text="${ingredient.name()}"></option>
+                        </span>
+                    </select>
+                    <label for="ingredient_2">Ingredient 2 :</label>
+                    <select id="ingredient_2" name="ingredient_2">
+                        <option selected>--Ingredient 2--</option>
+                        <span th:each="ingredient : ${ingredientList}">
+                            <option th:text="${ingredient.name()}"></option>
+                        </span>
+                    </select>
+                    <label for="ingredient_3">Ingredient 3 :</label>
+                    <select id="ingredient_3" name="ingredient_3">
+                        <option selected>--Ingredient 3--</option>
+                        <span th:each="ingredient : ${ingredientList}">
+                            <option th:text="${ingredient.name()}"></option>
+                        </span>
+                    </select>
+                </div>
+                <hr width=90%>
+                <div class="askSomethingElse">
+                    <span>Something else ?</span><br/><br/>
+                    <input type="radio" id="askMenu" name="askSomethingElse" value="menu"/><label for="askMenu">Menu</label><br/>
+                    <input type="radio" id="askDrink" name="askSomethingElse" value="drink"/><label for="askDrink">Drink</label><br/>
+                    <input type="radio" id="askDessert" name="askSomethingElse" value="dessert"/><label for="askDessert">Dessert</label>
+                </div>
+                <br/>
+                <div class="menu">
+                    <div class="drink">
+                        <label for="drinkChoice">Choose Your Drink :</label>
+                        <select id="drinkChoice" name="drinkChoice">
+                        <span th:each="drink : ${drinkList}">
+                            <option th:text="${drink.getName()}"></option>
+                        </span>
+                        </select>
+                    </div>
+                    <br/>
+                    <div class="dessert">
+                        <label for="dessertChoice">Choose Your dessert :</label>
+                        <select id="dessertChoice" name="dessertChoice">
+                        <span th:each="dessert : ${dessertList}">
+                            <option th:text="${dessert.getName()}"></option>
+                        </span>
+                        </select>
+                    </div>
+                </div>
+                <br/>
+            </div>
+            <div class="customerChoice">
+
+            </div>
+            <div class="footer">
+
+            </div>
+        </div>
+
+    </body>
+</html>
